@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>log in</title>
+    <style>
+        body{
+        background-image: url(../static/uploads/gif4.gif);
+          background-repeat:no-repeat;
+          background-size: 100%;
+          background-attachment: fixed;
+          background-position: center
+          }
+        .container{ width: 50%;
+              background: palegoldenrod;
+              text-align: center;
+              border-radius: 30px;
+              border-style:double
+              }
+        label{font-family:papyrus;
+              font-weight: bold;
+              font-size:30px}
+        input{border: solid 5px peru;
+              border-style:double;}
+        a{
+        color:black;
+        }
+
+    </style>
+</head>
+<body>
+<a href="/" target="_blank"><h1 style="font-size:20px; font-family:papyrus;">Main page</h1></a>
+<br><br><br><br><br><br>
+<center><div class="container">
+    <form>
+        <label for="login_name">Enter your name:</label><br>
+        <input type="text" id="login_name" name="login_name" required placeholder="your name.."><br><br>
+        <label for="login_email">Enter your email:</label><br>
+        <input type="text" id="login_email" name="login_email" required placeholder="your email.."><br><br>
+        <label for="login_pass">Enter your password:</label><br>
+        <input type="password" id="login_pass" name="login_pass" required placeholder="your password.."><br><br>
+        <input name="form" type="submit" value="Log In"/><br><br>
+
+        <label> Not a user?</label>
+        <a href="/add_userr" style="color:black">Register here!</a>
+    </form>
+</div></center>
+</body>
+</html>

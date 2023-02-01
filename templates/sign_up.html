@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+    <style>
+        body {background-color: peru;
+              background-image: url(../static/uploads/gif2.gif);
+          background-repeat:no-repeat;
+          background-size: 100%;
+          background-attachment: fixed;
+          background-position: center}
+
+        .container {
+              width: 50%;
+              background: palegoldenrod;
+              text-align: center;
+              border-radius: 30px
+              }
+        label{
+              font-family:papyrus;
+              font-weight: bold;
+              font-size:30px
+              }
+        a{
+        color:white;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<a href="/" target="_blank"><h1 style="font-size:20px; font-family:papyrus;">Main page</h1></a>
+<br><br><br><br><br><br>
+<br><br><br>
+<!--form decoration and if user? -- go to sign in page(not blank)-->
+<center><div class="container">
+  <form action="/add_user" method="post">
+    <label for="fname">Name:</label><br>
+    <input type="text" id="fname" name="user_name" placeholder="your name.." required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="user_email" placeholder="your email.." required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="user_password" placeholder="your password.." required><br><br>
+
+
+    <input name="form" type="submit" value="Sign Up"/><br><br>
+    <label> alredy user?</label>
+    <a href="/log_in" style="color:black">log in here!</a>
+  </form>
+</div></center>
+
+</body>
+</html>

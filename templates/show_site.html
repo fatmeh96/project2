@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>show site</title>
+<style>
+   body{background-color:black}
+   .navbar {overflow: hidden;background-color: #333;border: 1px solid black;}
+   h3,p {color:white; font-family: papyrus; display: inline-block;font-weight:bold}
+
+      .flex-container {
+  display: flex;
+  background-color: black;
+}
+
+.flex-container > div {
+  background-color: black;
+  margin: 10px;
+  padding: 20px;
+  font-size: 15px;
+  width:50%
+}
+
+</style>
+</head>
+<body>
+<div class="navbar">
+    <a href="/" ><img src="../static/uploads/logo.jpeg"  width="100px" heigth="100px" style="border-radius:50%; display:inline-block"></a>
+    <a href="/" target="_blank"><h3 style="position: absolute; margin-top:2%; margin-left:2%"><u>Main Page</u></h3></a>
+    <a href="/delete/{{sites_specific.id}}" type="button"><h3 style="color:white;position: absolute; margin-top:2%;margin-left:9%"><u>Delete</u></h3></a>
+    <a href="/alter_site/{{sites_specific.id}}" type="button"><h3 style="color:white;position: absolute; margin-top:2%;margin-left:14%"><u>Alter</u></h3></a>
+</div>
+
+<div class="flex-container">
+  <div><img src="../static/uploads/{{sites_specific.filename}}" width="700" height="550"></img></div>
+  <div>
+      <p style="color:white;font-size:17px">{{sites_specific.site_name}}</p><br>
+    <p style="color:white;font-size:17px">{{sites_specific.about}}</p><br>
+    <p style="color:white; font-size:17px">Waze at: {{sites_specific.waze_at}}</p>
+  </div>
+</div>
+
+<center><iframe src="https://embed.waze.com/iframe?zoom=13&lat=48.85661&lon=2.35222&pin=1" width="90%" height="400"></iframe><br></center>
+<!--<div class="flex-container">-->
+    <div style="border:5px solid black;bottom:0;">
+     <form action="/add_review/{{sites_specific.id}}" method="post" enctype="multipart/form-data">
+      <label style="color:white;font-family: papyrus;font-size:22px">Add your comment:</label><br>
+      <label style="color:white'font-family: papyrus;font-size:22px">Your name:</label><br>
+      <input type="text" name="user_name" placeholder="your name..." required><br><br>
+      <label style="color:white;font-family: papyrus;font-size:22px">Your comment:</label><br>
+      <textarea name="user_comment" rows="5" cols="50" required>comment..</textarea><br><br>
+      <input name="form" type="submit" value="Add comment"/><br><br>
+      <input type="hidden" name="site_id" value="{{sites_specific.id}}">>
+     </form>>
+    </div>
+    <div>
+        <h2 style="color:white; font-family: papyrus">Users Comments</h2>
+    {%for review in reviews_specific %}
+        <div style="border:1px solid Cornsilk;box-shadow: 5px 5px Bisque;border-style:dotted"><p style="color:white;display:inline-block">{{review.user_name}}:</p><br>
+        <p style="color:white;">{{review.review_text}}</p><br></div><br>
+    {%endfor%}
+    </div>
+<!--</div>-->
+
+<br>
+</body>
+</html>

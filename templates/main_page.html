@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+<style>
+    body {background-color: black; }
+    h3 {color:black; font-family: papyrus; display: inline-block;text-shadow:  1px 2px red, 0 0 1em blue, 0 0 0.2em white;}
+    h4 {color:black; font-family: papyrus; display: inline-block;text-shadow:  1px 2px red, 0 0 1em blue, 0 0 0.2em white;}
+    h1 {color:black; font-family: papyrus; display: inline-block;font-weight:bold;text-shadow:  1px 2px red, 0 0 1em blue, 0 0 0.2em white}
+    .navbar {overflow: hidden;background-color: #333;border: 1px solid black;}
+<!--************************************************-->
+.container {
+            position: relative;
+            width: 30%;
+        }
+
+        #gfg-img {
+            width: 100%;
+            display: block;
+        }
+
+        .title {
+            background-color: rgb(0, 0, 0, 0.5);
+        /*positioned relative to parent div (container) */
+            position: absolute;
+/* bottom margin is 0 so that it
+    coincides with container's bottom margin*/
+            bottom: 0;
+            color: white;
+            width: 33%;
+            font-size: 25px;
+            padding: 15px 0;
+            text-align: center;
+            /*invisible because opacity is 0*/
+            opacity: 0;
+            transition: 0.6s;
+        }
+
+        .container:hover .title {
+        /*becomes visible on hover*/
+            opacity: 1;
+        }
+<!--************************************************-->
+
+</style>
+</head>
+<body>
+<div class="navbar">
+    <a href="/" ><img src="../static/uploads/logo.jpeg"  width="100px" heigth="100px" style="border-radius:50%; display:inline-block"></a>
+    <a href="/add_sitee" target="_blank"><h3 style="position: absolute; margin-top: 2%; margin-left: 2%"><u>ADD</u></h3></a>
+
+    <h1 style="position: absolute;margin-top:2%; margin-left:30%">Our Antiquities Land</h1>
+</div>
+<br>
+
+<div style="width:100%;border:1px solid black"><center>
+{%for site in sites_info%}
+    <a href="{{url_for('site_info', site_id=site.id)}}" title="{{site.site_name}}">
+        <img src="{{ url_for('display_image', filename=site.filename)}}" width="280px" height="280px" style="border-radius:80%;border:2px solid red;"></a>
+{%endfor%}</center>
+</div>
+
+
+
+</body>
+</html>
